@@ -1,4 +1,13 @@
 @extends('layouts.master_dashboard_global')
+<?php  use App\Pakar;
+        use App\PakarSyarat;
+    $pakar = Pakar::where('user_id', Auth::user()->id )->first();
+  
+    $pakarsyarat= PakarSyarat::whereId(Auth::user()->id)->first();
+    
+
+   
+?>
 @section('content')    
 <!-- Main content -->
 <div class="main-content" id="panel">
@@ -111,6 +120,7 @@
         </div>
       </div>
     </div>
+    
     <div class="container-fluid mt--6">
         <div class="row">
         <div class="col-xl-4">
@@ -131,12 +141,18 @@
                     </div>
                     <div>
                       <div class="custom-control custom-checkbox custom-checkbox-success">
+                      @if ( Pakar::where('user_id', Auth::user()->id )->first() == null )  
                         <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" >
+                      @else
+                        <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" checked>
+                      @endif
                         <label class="custom-control-label" for="chk-todo-task-1"></label>
                       </div>
                     </div>
                   </div>
                 </li>
+            
+             
                 <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
                   <div class="checklist-item checklist-item-warning">
                     <div class="checklist-info">
@@ -145,25 +161,17 @@
                     </div>
                     <div>
                       <div class="custom-control custom-checkbox custom-checkbox-warning">
+                      @if ( PakarSyarat::where('pakar_id', Auth::user()->pakar->id )->first() == null )  
                         <input class="custom-control-input" id="chk-todo-task-2" type="checkbox">
+                      @else
+                        <input class="custom-control-input" id="chk-todo-task-2" type="checkbox" checked>
+                      @endif
                         <label class="custom-control-label" for="chk-todo-task-2"></label>
                       </div>
                     </div>
                   </div>
                 </li>
-                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
-                  <div class="checklist-item checklist-item-info">
-                    <div class="checklist-info">
-                      <h5 class="checklist-title mb-0">Upload Foto</h5>
-                    </div>
-                    <div>
-                      <div class="custom-control custom-checkbox custom-checkbox-info">
-                        <input class="custom-control-input" id="chk-todo-task-3" type="checkbox">
-                        <label class="custom-control-label" for="chk-todo-task-3"></label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+                
                 <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
                   <div class="checklist-item checklist-item-info">
                     <div class="checklist-info">
@@ -172,7 +180,11 @@
                     </div>
                     <div>
                       <div class="custom-control custom-checkbox custom-checkbox-info">
+                      @if ( PakarSyarat::where('pakar_id', Auth::user()->pakar->id )->first() == null )
                         <input class="custom-control-input" id="chk-todo-task-3" type="checkbox">
+                      @else
+                        <input class="custom-control-input" id="chk-todo-task-3" type="checkbox" checked>
+                      @endif
                         <label class="custom-control-label" for="chk-todo-task-3"></label>
                       </div>
                     </div>
@@ -182,219 +194,213 @@
             </div>
           </div>
         </div>
+        @if ( Pakar::where('user_id', Auth::user()->id )->first() == null )  
+        <div class="col-xl-8">
+        <form action="{{route('storeProfilPakar')}}" method="post" enctype="multipart/form-data" >
+		    @csrf
+            <div class="card">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                    <div class="col">
+                      <h6 class="text-black text-uppercase ls-1 mb-1">Selamat Datang !</h6>
+                      <h5 class="h3 text-black mb-0 text-uppercase" >{{Auth::user()->username}}</h5>
+                    </div> 
+                    <div class="col">
+                      <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item mr-2 mr-md-0" >
+                        <button type="submit" onclick="alert()"  class="nav-link py-2 px-3 active">
+                            <span class="d-none d-md-block"><i class="fa fa-floppy-o" aria-hidden="true"> Simpan</i></span>
+                            <span class="d-md-none"><i class="fa fa-floppy-o" aria-hidden="true"> Simpan</i></span>
+                        </button>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+
+              <div class="card-body">
+                    <!-- Input groups with icon -->
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="input-group input-group-merge">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                              </div>
+                              <input class="form-control" value="{{auth::user()->id}}" name="user_id" type="hidden" >
+                              <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Nama Lengkap" name="nama_lengkap" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
+                            </div>
+                              <select class="form-control" name="jenis_kelamin" id="jenis_kelamin" >
+                                          <option value="Laki-laki" selected>Laki-laki</option>
+                                          <option value="Perempuan">Perempuan</option>
+                              </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Nomor Hp" name="nomor_hp" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <input class="form-control" placeholder="Alamat" name="alamat" type="text">
+                            <div class="input-group-append">
+                              <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Upload Foto -->
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" name="foto" id="projectCoverUploads">
+                      <label class="custom-file-label" for="projectCoverUploads">Pilih Foto</label>
+                    </div>
+
+              </div>  
+
+            </div>
+        </form>
+        </div>
+        @else
         <div class="col-xl-8">
             <div class="card">
-            <div class="card-header bg-transparent">
-            <div class="row align-items-center">
-                <div class="col">
-                  <h6 class="text-black text-uppercase ls-1 mb-1">Selamat Datang !</h6>
-                  <h5 class="h3 text-black mb-0 text-uppercase" >{{Auth::user()->username}}</h5>
-                </div> 
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="dashboard.html#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Month</span>
-                        <span class="d-md-none">M</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="dashboard.html#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Week</span>
-                        <span class="d-md-none">W</span>
-                      </a>
-                    </li>
-                  </ul>
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                    <div class="col">
+                      <h6 class="text-black text-uppercase ls-1 mb-1">Selamat Datang !</h6>
+                      <h5 class="h3 text-black mb-0 text-uppercase" >{{Auth::user()->username}}</h5>
+                    </div> 
+                    <div class="col">
+                      <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item mr-2 mr-md-0" >
+                        <button type="submit" onclick="alert()"  class="nav-link py-2 px-3 active">
+                            <span class="d-none d-md-block"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></span>
+                            <span class="d-md-none"><i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></span>
+                        </button>
+                        </li>
+                      </ul>
+                    </div>
                 </div>
+              </div>
+              <div class="card-body">
+                    <!-- Input groups with icon -->
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                      <img src="{{ url('images/profil/' . $pakar->foto) }}" width="150px"  style="border: 2px solid #555; border-radius:20px;" alt="Avatar">
+                      </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <div class="input-group input-group-merge">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                              </div>
+                              <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="{{auth::user()->pakar->nama_lengkap}}" name="nama_lengkap" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
+                            </div>
+                              <select class="form-control" name="jenis_kelamin" id="jenis_kelamin" >
+                                          <option value="Laki-laki" selected>Laki-laki</option>
+                                          <option value="Perempuan">Perempuan</option>
+                              </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="{{auth::user()->pakar->nomor_hp}}" name="nomor_hp" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group input-group-merge">
+                            <input class="form-control" placeholder="{{auth::user()->pakar->alamat}}" name="alamat" type="text">
+                            <div class="input-group-append">
+                              <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Upload Foto -->
+                 
+
+              </div>  
+
             </div>
-            </div>
-            <div class="card-body">
-            <form>
-                  <!-- Input groups with icon -->
-                  <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Nama Lengkap" type="text">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Jenis Kelamin" type="jk">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Nomor Hp" type="text">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <input class="form-control" placeholder="Alamat" type="alamat">
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Upload Foto -->
-                <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-dropzone-url="http://">
-                  <div class="fallback">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="projectCoverUploads">
-                      <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
-                    </div>
-                  </div>
-                  <div class="dz-preview dz-preview-single">
-                    <div class="dz-preview-cover">
-                      <img class="dz-preview-img" src="https://demos.creative-tim.com/argon-dashboard-pro/pages/forms/..." alt="..." data-dz-thumbnail>
-                    </div>
-                  </div>
-                </div>
-                </form>
-            </div>
-          </div>
-        </div>
         
-        <div class="col-xl-4">
-         &nbsp;
         </div>
-        <div class="col-xl-8">
-            <div class="card">
-            <div class="card-header bg-transparent">
-            <div class="row align-items-center">
-                <div class="col">
-                  <h5 class="text-black text-uppercase">Upload Dokumen Pendukung</h5>
-                </div> 
-                <div class="col">
-                  <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="dashboard.html#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                        <span class="d-none d-md-block">Month</span>
-                        <span class="d-md-none">M</span>
-                      </a>
-                    </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="dashboard.html#" class="nav-link py-2 px-3" data-toggle="tab">
-                        <span class="d-none d-md-block">Week</span>
-                        <span class="d-md-none">W</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-            </div>
-            </div>
-            <div class="card-body">
-            <form>
-                  <!-- Input groups with icon -->
-                  <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Nama Lengkap" type="text">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Jenis Kelamin" type="jk">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                          </div>
-                          <input class="form-control" placeholder="Nomor Hp" type="text">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <div class="input-group input-group-merge">
-                          <input class="form-control" placeholder="Alamat" type="alamat">
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Upload Foto -->
-                <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-dropzone-url="http://">
-                  <div class="fallback">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="projectCoverUploads">
-                      <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
-                    </div>
-                  </div>
-                  <div class="dz-preview dz-preview-single">
-                    <div class="dz-preview-cover">
-                      <img class="dz-preview-img" src="https://demos.creative-tim.com/argon-dashboard-pro/pages/forms/..." alt="..." data-dz-thumbnail>
-                    </div>
-                  </div>
-                </div>
-                </form>
-            </div>
-          </div>
-        </div>
-        
+        @endif
+
+      
         
       </div>
       </div>
 </div>
 
 @stop
+<script>
+function alert() {
+    swal({
+        title: "Data profil berhasil di simpan !",
+        icon: "success",
+    });
+}
+</script>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pakar_Syarat extends Model
+class PakarSyarat extends Model
 {
     protected $table = 'pakar_syarat';
     protected $guarded = [];

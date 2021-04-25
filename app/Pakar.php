@@ -14,8 +14,8 @@ class Pakar extends Model
       return $this->belongsTo(User::class);
     }
 
-    public function pakar_syarat() 
+    public function pakarsyarat() 
     {
-    	return $this->hasOne(Pakar_Syarat::class);
+    	return $this->hasOne(PakarSyarat::class);
     }
 }

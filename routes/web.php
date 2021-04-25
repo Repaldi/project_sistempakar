@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/logout','HomeController@logout')->name('logout');
+
+Route::post('/home/store', 'ProfilController@storeProfilPakar')->name('storeProfilPakar');

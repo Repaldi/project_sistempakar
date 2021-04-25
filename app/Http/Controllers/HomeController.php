@@ -29,6 +29,8 @@ class HomeController extends Controller
                 return view('pakar/index'); 
              }
     }
+
+ 
     public function logout()
     {
       auth()->logout();
