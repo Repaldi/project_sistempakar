@@ -110,6 +110,7 @@
               <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
             </div>
           </div>
+          @if(Pakar::where('user_id', Auth::user()->id )->first() == null )  
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
                 <span class="alert-text"><strong>Pemberitahuan!</strong> Silahkan lengkapi profil dan persyaratan anda untuk menjadi pakar.</span>
@@ -117,6 +118,8 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>  
+          @else
+          @endif
         </div>
       </div>
     </div>
@@ -180,7 +183,7 @@
                     </div>
                     <div>
                       <div class="custom-control custom-checkbox custom-checkbox-info">
-                      @if ( PakarSyarat::where('pakar_id', Auth::user()->pakar->id )->first() == null )
+                      @if ( PakarSyarat::where('pakar_id', Auth::user()->pakar->id )->first() == null ) 
                         <input class="custom-control-input" id="chk-todo-task-3" type="checkbox">
                       @else
                         <input class="custom-control-input" id="chk-todo-task-3" type="checkbox" checked>

@@ -7,7 +7,8 @@
   <meta name="description" content="Aplikasi Diagnosis Penyakit Tumbuhan Nanas">
   <meta name="author" content="kelompok nanas">
   <title>Sistem Pakar-Aplikasi Diagnosis Penyakit Tumbuhan Nanas</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('asset_dashboard_1/img/brand/favicon.png')}}" type="image/png">
   <!-- Fonts -->
@@ -48,7 +49,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('home')}}">
                 <i class="fa fa-home" aria-hidden="true"  style="color:green"></i>
                 <span class="nav-link-text">Beranda</span>
               </a>
@@ -145,39 +146,27 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('home')}}">
                 <i class="fa fa-home" aria-hidden="true"  style="color:green"></i>
                 <span class="nav-link-text">Beranda</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('penyakit')}}">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
-                <span class="nav-link-text">Diagnosis</span>
+                <span class="nav-link-text">Penyakit</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="fa fa-history" aria-hidden="true" style="color:red"></i>
-                <span class="nav-link-text">Riwayat</span>
+                <span class="nav-link-text">Gejala</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="fa fa-commenting-o" aria-hidden="true" style="color:green"></i>
-                <span class="nav-link-text">Keterangan</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-bookmark" aria-hidden="true" style="color:blue"></i>
-                <span class="nav-link-text">Info Harga</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-info-circle" aria-hidden="true" style="color:red"></i>
-                <span class="nav-link-text">Tentang</span>
+                <span class="nav-link-text">Pengetahuan</span>
               </a>
             </li>
           </ul>
@@ -209,9 +198,10 @@
   <!-- Demo JS - remove this in your project -->
   <script src="{{asset('asset_dashboard_1/js/demo.min.js')}}"></script>
   
+  
 
 
- 
+  @yield('linkfooter')
 </body>
 
 </html>

@@ -22,4 +22,23 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout','HomeController@logout')->name('logout');
 
+/*
+|--------------------------------------------------------------------------
+| ROUTE PAKAR
+|--------------------------------------------------------------------------
+| Disini Khusus untuk dashboar Pakar
+| 
+*/
+
+/*
+| PROFIL
+*/
 Route::post('/home/store', 'ProfilController@storeProfilPakar')->name('storeProfilPakar');
+
+/*
+| PENYAKIT
+*/
+Route::get('/penyakit', 'PenyakitController@index')->name('penyakit');
+Route::post('/penyakit','PenyakitController@storePenyakit')->name('storePenyakit');
+Route::patch('/penyakit','PenyakitController@updatePenyakit')->name('updatePenyakit');
+Route::get('/penyakit/delete/{id}','PenyakitController@deletePenyakit')->name('deletePenyakit');
