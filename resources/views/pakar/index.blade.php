@@ -98,94 +98,303 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-12 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Selamat Datang di Aplikasi “SMART DINAS” <br/>(Solusi Cerdas Diagnosis Penyakit Tanaman Nanas)</h6>
-              <p style="color:white"> SMART  DINAS meupakan aplikasi yang dapat  mengalisa, mendeteksi   dan   memberikan   solusi   terhadap   penyakit   pada   tanaman   nanas. </p>
+              <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
             </div>
           </div>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <span class="alert-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
-</span>
-                <span class="alert-text"><strong>Pemberitahuan!</strong> Silahkan lengkapi profil dan persyaratan anda untuk menjadi pakar</span>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                <span class="alert-text"><strong>Pemberitahuan!</strong> Silahkan lengkapi profil dan persyaratan anda untuk menjadi pakar.</span>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
-          <!-- Card stats -->
-          <div class="row">
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Gejala Penyakit</h5>
-                      <span class="h2 font-weight-bold mb-0">20</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                        <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Penyakit Nanas</h5>
-                      <span class="h2 font-weight-bold mb-0">10</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="fa fa-bug" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Pengetahuan</h5>
-                      <span class="h2 font-weight-bold mb-0">100</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="fa fa-podcast" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Admin Pakar</h5>
-                      <span class="h2 font-weight-bold mb-0">3</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </div>  
         </div>
       </div>
     </div>
+    <div class="container-fluid mt--6">
+        <div class="row">
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0 text-black">Persyaratan</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+            <ul class="list-group list-group-flush" data-toggle="checklist">
+                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                  <div class="checklist-item checklist-item-success">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">Lengkapi Profil</h5>
+                    </div>
+                    <div>
+                      <div class="custom-control custom-checkbox custom-checkbox-success">
+                        <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" >
+                        <label class="custom-control-label" for="chk-todo-task-1"></label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                  <div class="checklist-item checklist-item-warning">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">Upload Dokumen Pendukung</h5>
+                      <small>(KTP, Bukti Seorang Pakar)</small>
+                    </div>
+                    <div>
+                      <div class="custom-control custom-checkbox custom-checkbox-warning">
+                        <input class="custom-control-input" id="chk-todo-task-2" type="checkbox">
+                        <label class="custom-control-label" for="chk-todo-task-2"></label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                  <div class="checklist-item checklist-item-info">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">Upload Foto</h5>
+                    </div>
+                    <div>
+                      <div class="custom-control custom-checkbox custom-checkbox-info">
+                        <input class="custom-control-input" id="chk-todo-task-3" type="checkbox">
+                        <label class="custom-control-label" for="chk-todo-task-3"></label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                  <div class="checklist-item checklist-item-info">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">Verifikasi Pendaftaran</h5>
+                      <small>(Pendaftaran akan diverifikasi langsung oleh administrator)</small>
+                    </div>
+                    <div>
+                      <div class="custom-control custom-checkbox custom-checkbox-info">
+                        <input class="custom-control-input" id="chk-todo-task-3" type="checkbox">
+                        <label class="custom-control-label" for="chk-todo-task-3"></label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card">
+            <div class="card-header bg-transparent">
+            <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-black text-uppercase ls-1 mb-1">Selamat Datang !</h6>
+                  <h5 class="h3 text-black mb-0 text-uppercase" >{{Auth::user()->username}}</h5>
+                </div> 
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="dashboard.html#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                        <span class="d-none d-md-block">Month</span>
+                        <span class="d-md-none">M</span>
+                      </a>
+                    </li>
+                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="dashboard.html#" class="nav-link py-2 px-3" data-toggle="tab">
+                        <span class="d-none d-md-block">Week</span>
+                        <span class="d-md-none">W</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            </div>
+            <div class="card-body">
+            <form>
+                  <!-- Input groups with icon -->
+                  <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Nama Lengkap" type="text">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Jenis Kelamin" type="jk">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Nomor Hp" type="text">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <input class="form-control" placeholder="Alamat" type="alamat">
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Upload Foto -->
+                <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-dropzone-url="http://">
+                  <div class="fallback">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="projectCoverUploads">
+                      <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="dz-preview dz-preview-single">
+                    <div class="dz-preview-cover">
+                      <img class="dz-preview-img" src="https://demos.creative-tim.com/argon-dashboard-pro/pages/forms/..." alt="..." data-dz-thumbnail>
+                    </div>
+                  </div>
+                </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-4">
+         &nbsp;
+        </div>
+        <div class="col-xl-8">
+            <div class="card">
+            <div class="card-header bg-transparent">
+            <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="text-black text-uppercase">Upload Dokumen Pendukung</h5>
+                </div> 
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="dashboard.html#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                        <span class="d-none d-md-block">Month</span>
+                        <span class="d-md-none">M</span>
+                      </a>
+                    </li>
+                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="dashboard.html#" class="nav-link py-2 px-3" data-toggle="tab">
+                        <span class="d-none d-md-block">Week</span>
+                        <span class="d-md-none">W</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            </div>
+            <div class="card-body">
+            <form>
+                  <!-- Input groups with icon -->
+                  <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="{{auth::user()->email}}" type="email" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Nama Lengkap" type="text">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-transgender" aria-hidden="true"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Jenis Kelamin" type="jk">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Nomor Hp" type="text">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="input-group input-group-merge">
+                          <input class="form-control" placeholder="Alamat" type="alamat">
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Upload Foto -->
+                <div class="dropzone dropzone-single mb-3" data-toggle="dropzone" data-dropzone-url="http://">
+                  <div class="fallback">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="projectCoverUploads">
+                      <label class="custom-file-label" for="projectCoverUploads">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="dz-preview dz-preview-single">
+                    <div class="dz-preview-cover">
+                      <img class="dz-preview-img" src="https://demos.creative-tim.com/argon-dashboard-pro/pages/forms/..." alt="..." data-dz-thumbnail>
+                    </div>
+                  </div>
+                </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+      </div>
+</div>
+
 @stop

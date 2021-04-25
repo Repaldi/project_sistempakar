@@ -28,7 +28,7 @@
       <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="dashboard.html">
           <!-- <img src="{{asset('asset_dashboard_1/img/brand/biru.png')}}" class="navbar-brand-img" alt="..."> -->
-          <img src="" class="navbar-brand-img" alt="Logo">
+          <img src="" class="navbar-brand-img" alt="SMART DIMAS">
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->
@@ -202,6 +202,8 @@
   <script src="{{asset('asset_dashboard_1/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
   <script src="{{asset('asset_dashboard_1/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
   <script src="{{asset('asset_dashboard_1/vendor/lavalamp/js/jquery.lavalamp.min.js')}}"></script>
+  <script src="{{asset('asset_dashboard_1/vendor/dropzone/dist/min/dropzone.min.js')}}"></script>
+
   <!-- Argon JS -->
   <script src="{{asset('asset_dashboard_1/js/argon.min-v=1.0.0.js')}}"></script>
   <!-- Demo JS - remove this in your project -->
