@@ -42,3 +42,11 @@ Route::get('/penyakit', 'PenyakitController@index')->name('penyakit');
 Route::post('/penyakit','PenyakitController@storePenyakit')->name('storePenyakit');
 Route::patch('/penyakit','PenyakitController@updatePenyakit')->name('updatePenyakit');
 Route::get('/penyakit/delete/{id}','PenyakitController@deletePenyakit')->name('deletePenyakit');
+
+/*
+| GEJALA
+*/
+Route::get('/gejala', 'GejalaController@index')->name('gejala');
+Route::post('/gejala','GejalaController@storeGejala')->name('storeGejala');
+Route::patch('/gejala','GejalaController@updateGejala')->name('updateGejala');
+Route::get('/gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteGejala');

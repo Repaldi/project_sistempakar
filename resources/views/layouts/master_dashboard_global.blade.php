@@ -158,7 +158,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('gejala')}}">
                 <i class="fa fa-history" aria-hidden="true" style="color:red"></i>
                 <span class="nav-link-text">Gejala</span>
               </a>
