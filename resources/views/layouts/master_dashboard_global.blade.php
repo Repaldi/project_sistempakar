@@ -9,6 +9,7 @@
   <title>Sistem Pakar-Aplikasi Diagnosis Penyakit Tumbuhan Nanas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('asset_dashboard_1/img/brand/favicon.png')}}" type="image/png">
   <!-- Fonts -->
@@ -139,7 +140,7 @@
           </ul>
         </div>
       </div>
-      @else(Auth::user()->role == 2)
+      @else(Auth::user()->role == 2 )
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -151,6 +152,7 @@
                 <span class="nav-link-text">Beranda</span>
               </a>
             </li>
+           
             <li class="nav-item">
               <a class="nav-link" href="{{route('penyakit')}}">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
@@ -169,6 +171,8 @@
                 <span class="nav-link-text">Pengetahuan</span>
               </a>
             </li>
+         
+
           </ul>
         </div>
       </div>
@@ -192,15 +196,10 @@
   <script src="{{asset('asset_dashboard_1/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
   <script src="{{asset('asset_dashboard_1/vendor/lavalamp/js/jquery.lavalamp.min.js')}}"></script>
   <script src="{{asset('asset_dashboard_1/vendor/dropzone/dist/min/dropzone.min.js')}}"></script>
-
   <!-- Argon JS -->
   <script src="{{asset('asset_dashboard_1/js/argon.min-v=1.0.0.js')}}"></script>
   <!-- Demo JS - remove this in your project -->
   <script src="{{asset('asset_dashboard_1/js/demo.min.js')}}"></script>
-  
-  
-
-
   @yield('linkfooter')
 </body>
 

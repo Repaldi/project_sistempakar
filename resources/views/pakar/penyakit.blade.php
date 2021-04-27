@@ -134,8 +134,8 @@
               <tr>
                 <th>Gambar</th>
                 <th>Nama Penyakit</th>
-                <th>Created At</th>
-                <th></th>
+                <th>created_at</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>

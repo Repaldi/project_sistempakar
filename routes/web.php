@@ -21,6 +21,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout','HomeController@logout')->name('logout');
+/*
+|--------------------------------------------------------------------------
+| ROUTE ADMIN
+|--------------------------------------------------------------------------
+| Disini Khusus untuk dashboar ADMIN
+| 
+*/
+
+
+
+/*------------------------BATAS ROUTE ADMIN-------------------------------*/
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +42,11 @@ Route::get('/logout','HomeController@logout')->name('logout');
 */
 
 /*
-| PROFIL
+| DASHBOARD DAN PROFIL
 */
 Route::post('/home/store', 'ProfilController@storeProfilPakar')->name('storeProfilPakar');
+Route::patch('/home/update','ProfilController@updateProfilPakar')->name('updateProfilPakar');
+Route::post('/home/store/pakarsyarat', 'ProfilController@storePakarSyarat')->name('storePakarSyarat');
 
 /*
 | PENYAKIT
@@ -50,3 +63,5 @@ Route::get('/gejala', 'GejalaController@index')->name('gejala');
 Route::post('/gejala','GejalaController@storeGejala')->name('storeGejala');
 Route::patch('/gejala','GejalaController@updateGejala')->name('updateGejala');
 Route::get('/gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteGejala');
+
+/*------------------------BATAS ROUTE PAKAR-------------------------------*/

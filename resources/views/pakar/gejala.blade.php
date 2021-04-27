@@ -169,19 +169,17 @@
     </div>
 </div>
 
-@stop
+@endsection
 
 @section('linkfooter')
-
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
     $(document).ready(function () {
         $(".edit-gejala").click(function (e) {
         const nama_gejala      = $(this).data('nama_gejala')
         const gejala_id        = $(this).data('gejala_id');
-        
-
-        console.log(nama_gejala);
-        console.log(gejala_id);
+        // console.log(nama_gejala);
+        // console.log(gejala_id);
        
         $("#gejala_id_update").val(gejala_id);
         $("#nama_gejala_update").val(nama_gejala);
@@ -221,6 +219,38 @@
 </script>
 @endif
 
+<!-- Modal EDIT Gejala -->
+<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="edit_gejala">
+    <div class="modal-dialog modal-lg-12" >
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h5 class="modal-title " id="exampleModalLabel"> Edit Gejala</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('updateGejala')}}" enctype="multipart/form-data" method="post">
+          @csrf @method('PATCH')
+            <div class="modal-body">
+              <div class="container">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="nama_gejala" class="col-form-label">Nama Gejala</label>
+                      <input type="hidden" value="" name="gejala_id_update" id="gejala_id_update">
+                      <input class="form-control" type="text" name="nama_gejala_update" id="nama_gejala_update" value="">
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-info btn-sm" >Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
     <!-- Modal TAMBAH EBOOK -->
 <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="tambah_gejala">
     <div class="modal-dialog modal-lg-12" >
@@ -251,40 +281,6 @@
     </div>
 </div>
 
-
-<!-- Modal EDIT Gejala -->
-<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="edit_gejala">
-    <div class="modal-dialog modal-lg-12" >
-      <div class="modal-content">
-        <div class="modal-header ">
-          <h5 class="modal-title " id="exampleModalLabel"> Edit Gejala</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form action="{{route('updateGejala')}}" enctype="multipart/form-data" method="post">
-          @csrf @method('PATCH')
-            <div class="modal-body">
-              <div class="container">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="nama_gejala" class="col-form-label">Nama Gejala</label>
-                      <input type="hidden" value="" name="gejala_id_update" id="gejala_id_update">
-                      <input class="form-control" type="text" name="nama_gejala_update" id="nama_gejala_update" value="">
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-info btn-sm" >Simpan</button>
-          </div>
-        </form>
-      </div>
-    </div>
-</div>
 
 
 @endsection
