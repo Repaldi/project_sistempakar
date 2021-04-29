@@ -195,7 +195,6 @@ use App\PakarSyarat;
                       <small>(Pendaftaran akan diverifikasi langsung oleh administrator)</small>
                     </div>
                     <div>
-                    @if($pakar != null)
                     @if($pakarsyarat != null)
                       <div class="custom-control custom-checkbox custom-checkbox-info">
                       @if($pakar->pakarsyarat->status == 0) 
@@ -205,8 +204,6 @@ use App\PakarSyarat;
                       @endif
                         <label class="custom-control-label" for="chk-todo-task-3"></label>
                       </div>
-                    @else
-                    @endif
                     @else
                     <div class="custom-control custom-checkbox custom-checkbox-info">
                     

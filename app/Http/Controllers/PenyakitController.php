@@ -18,6 +18,7 @@ class PenyakitController extends Controller
     {
         $this->validate($request,['foto' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
         $request->validate([
+            'kode_penyakit' => 'required',
             'nama_penyakit' => 'required',
             'detail_penyakit' => 'required',
             'saran_penyakit' => 'required',
@@ -34,6 +35,7 @@ class PenyakitController extends Controller
         }
 
         penyakit::create([
+            'kode_penyakit' => $request->kode_penyakit,
             'nama_penyakit' => $request->nama_penyakit,
             'detail_penyakit' => $request->detail_penyakit,
             'saran_penyakit' => $request->saran_penyakit,
@@ -48,6 +50,7 @@ class PenyakitController extends Controller
     {
         $this->validate($request,['foto_update' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);
         $request->validate([
+            'kode_penyakit_update' => 'required',
             'nama_penyakit_update' => 'required',
             'detail_penyakit_update' => 'required',
             'saran_penyakit_update' => 'required',
@@ -66,6 +69,7 @@ class PenyakitController extends Controller
         }
 
         $penyakit->update([
+            'kode_penyakit' => $request->kode_penyakit_update,
             'nama_penyakit' => $request->nama_penyakit_update,
             'detail_penyakit' => $request->detail_penyakit_update,
             'saran_penyakit' => $request->saran_penyakit_update,

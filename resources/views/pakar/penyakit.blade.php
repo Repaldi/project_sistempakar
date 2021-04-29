@@ -133,8 +133,8 @@
             <thead class="thead-light">
               <tr>
                 <th>Gambar</th>
+                <th>Kode Penyakit</th>
                 <th>Nama Penyakit</th>
-                <th>created_at</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -145,13 +145,13 @@
                   <img src="{{ url('images/penyakit/' . $item->foto) }}" class="avatar rounded-circle mr-3">
                 </td>
                 <td>
-                <a href="tables.html#!" class="font-weight-bold">{{$item->nama_penyakit}}</a>
+                  <span >{{$item->kode_penyakit}}</span>
                 </td>
                 <td>
-                  <span class="text-muted">{{$item->created_at}}</span>
+                <a href="tables.html#!" class="font-weight-bold">{{$item->nama_penyakit}}</a>
                 </td>
                 <td class="table-actions">
-                <a href="#" class="btn btn-sm edit-penyakit" data-penyakit_id="{{$item->id}}" data-nama_penyakit="{{$item->nama_penyakit}}" data-detail_penyakit="{{$item->detail_penyakit}}" data-saran_penyakit="{{$item->saran_penyakit}}" data-toggle="modal" data-target="#edit_penyakit"> 
+                <a href="#" class="btn btn-sm edit-penyakit" data-penyakit_id="{{$item->id}}" data-kode_penyakit="{{$item->kode_penyakit}}"data-nama_penyakit="{{$item->nama_penyakit}}" data-detail_penyakit="{{$item->detail_penyakit}}" data-saran_penyakit="{{$item->saran_penyakit}}" data-toggle="modal" data-target="#edit_penyakit"> 
                 <i class="fas fa-user-edit" style="color:blue"></i>
                 </a> | 
                 <a href="#" class="btn btn-sm hapus-penyakit" data-penyakit_id="{{$item->id}}" data-nama_penyakit="{{$item->nama_penyakit}}">
@@ -180,17 +180,20 @@
 <script>
     $(document).ready(function () {
         $(".edit-penyakit").click(function (e) {
+        const kode_penyakit      = $(this).data('kode_penyakit')
         const nama_penyakit      = $(this).data('nama_penyakit')
         const penyakit_id        = $(this).data('penyakit_id');
         const detail_penyakit    = $(this).data('detail_penyakit');
         const saran_penyakit     = $(this).data('saran_penyakit');
 
+        console.log(kode_penyakit);
         console.log(nama_penyakit);
         console.log(penyakit_id);
         console.log(detail_penyakit);
         console.log(saran_penyakit);
         $("#penyakit_id_update").val(penyakit_id);
         $("#detail_penyakit_update").val(detail_penyakit);
+        $("#kode_penyakit_update").val(kode_penyakit);
         $("#nama_penyakit_update").val(nama_penyakit);
         $("#saran_penyakit_update").val(saran_penyakit);
 
@@ -245,6 +248,10 @@
               <div class="container">
                   <div class="col-md-12">
                     <div class="form-group">
+                      <label for="kode_penyakit" class="col-form-label">Kode Penyakit</label>
+                      <input class="form-control" type="text" name="kode_penyakit" id="kode_penyakit">
+                    </div>
+                    <div class="form-group">
                       <label for="nama_penyakit" class="col-form-label">Nama Penyakit</label>
                       <input class="form-control" type="text" name="nama_penyakit" id="nama_penyakit">
                     </div>
@@ -290,6 +297,11 @@
             <div class="modal-body">
               <div class="container">
                   <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="kode_penyakit" class="col-form-label">Kode Penyakit</label>
+                      <input type="hidden" value="" name="penyakit_id_update" id="penyakit_id_update">
+                      <input class="form-control" type="text" name="kode_penyakit_update" id="kode_penyakit_update" value="">
+                    </div>
                     <div class="form-group">
                       <label for="nama_penyakit" class="col-form-label">Nama Penyakit</label>
                       <input type="hidden" value="" name="penyakit_id_update" id="penyakit_id_update">

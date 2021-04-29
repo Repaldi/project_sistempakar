@@ -132,22 +132,21 @@
           <table class="table align-items-center table-flush table-striped">
             <thead class="thead-light">
               <tr>
+                <th>Kode Gejala</th>
                 <th>Nama Gejala</th>
-                <th>Created At</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
             @forelse($gejala as $item)
               <tr>
+                <td>{{$item->kode_gejala}}</td>
                 <td>
                 <a href="tables.html#!" class="font-weight-bold">{{$item->nama_gejala}}</a>
                 </td>
-                <td>
-                  <span class="text-muted">{{$item->created_at}}</span>
-                </td>
+               
                 <td class="table-actions">
-                <a href="#" class="btn btn-sm edit-gejala" data-gejala_id="{{$item->id}}" data-nama_gejala="{{$item->nama_gejala}}" data-toggle="modal" data-target="#edit_gejala"> 
+                <a href="#" class="btn btn-sm edit-gejala" data-gejala_id="{{$item->id}}" data-kode_gejala="{{$item->kode_gejala}}" data-nama_gejala="{{$item->nama_gejala}}" data-toggle="modal" data-target="#edit_gejala"> 
                 <i class="fas fa-user-edit" style="color:blue"></i>
                 </a> | 
                 <a href="#" class="btn btn-sm hapus-gejala" data-gejala_id="{{$item->id}}" data-nama_gejala="{{$item->nama_gejala}}">
@@ -157,7 +156,7 @@
               </tr>
             @empty
             <tr>
-									<td colspan="3"> Belum ada data Gejala</td>
+									<td colspan="4"> Belum ada data Gejala</td>
 								</tr>
             @endforelse
             </tbody>
@@ -176,6 +175,7 @@
 <script>
     $(document).ready(function () {
         $(".edit-gejala").click(function (e) {
+        const kode_gejala      = $(this).data('kode_gejala')
         const nama_gejala      = $(this).data('nama_gejala')
         const gejala_id        = $(this).data('gejala_id');
         // console.log(nama_gejala);
@@ -183,6 +183,7 @@
        
         $("#gejala_id_update").val(gejala_id);
         $("#nama_gejala_update").val(nama_gejala);
+        $("#kode_gejala_update").val(kode_gejala);
 
         });
     });
@@ -235,6 +236,10 @@
               <div class="container">
                   <div class="col-md-12">
                     <div class="form-group">
+                      <label for="kode_gejala" class="col-form-label">Kode Gejala</label>
+                      <input class="form-control" type="text" name="kode_gejala_update" id="kode_gejala_update" value="">
+                    </div>
+                    <div class="form-group">
                       <label for="nama_gejala" class="col-form-label">Nama Gejala</label>
                       <input type="hidden" value="" name="gejala_id_update" id="gejala_id_update">
                       <input class="form-control" type="text" name="nama_gejala_update" id="nama_gejala_update" value="">
@@ -266,6 +271,10 @@
             <div class="modal-body">
               <div class="container">
                   <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="kode_gejala" class="col-form-label">Kode gejala</label>
+                      <input class="form-control" type="text" name="kode_gejala" id="kode_gejala">
+                    </div>
                     <div class="form-group">
                       <label for="nama_gejala" class="col-form-label">Nama gejala</label>
                       <input class="form-control" type="text" name="nama_gejala" id="nama_gejala">

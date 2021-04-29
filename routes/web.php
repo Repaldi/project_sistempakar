@@ -65,3 +65,15 @@ Route::patch('/gejala','GejalaController@updateGejala')->name('updateGejala');
 Route::get('/gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteGejala');
 
 /*------------------------BATAS ROUTE PAKAR-------------------------------*/
+
+/*
+|--------------------------------------------------------------------------
+| ROUTE GLOBAL/PENGGUNA BIASA
+|--------------------------------------------------------------------------
+| Disini Khusus untuk dashboar global
+| 
+*/
+Route::get('/diagnosis', 'DiagnosisController@index')->name('diagnosis');
+
+
+/*------------------------BATAS ROUTE GLOBAL------------------------------*/
