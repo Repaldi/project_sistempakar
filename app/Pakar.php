@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\PakarSyarat;
 
 class Pakar extends Model
 {
@@ -16,6 +17,6 @@ class Pakar extends Model
 
     public function pakarsyarat() 
     {
-    	return $this->hasOne(PakarSyarat::class);
+    	return $this->hasOne(PakarSyarat::class,);
     }
 }

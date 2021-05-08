@@ -96,25 +96,25 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="home">
                 <i class="fa fa-home" aria-hidden="true"  style="color:green"></i>
                 <span class="nav-link-text">Beranda</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/pakar">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
                 <span class="nav-link-text">Pakar</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/penyakit">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
                 <span class="nav-link-text">Penyakit</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/gejala">
                 <i class="fa fa-history" aria-hidden="true" style="color:red"></i>
                 <span class="nav-link-text">Gejala</span>
               </a>
