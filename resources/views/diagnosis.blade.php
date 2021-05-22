@@ -43,11 +43,6 @@ use App\Kondisi;
                 <i class="ni ni-zoom-split-in"> Cari</i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="dashboard.html#" role="button">
-              <i class="fa fa-question-circle-o" aria-hidden="true"> Bantuan</i>
-              </a>
-            </li>
             @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}" role="button" >
@@ -57,7 +52,7 @@ use App\Kondisi;
             @if (Route::has('register'))
             <li class="nav-item">
               <a class="nav-link" href="{{ route('register') }}" role="button">
-              <i class="fa fa-sign-in" aria-hidden="true"> Daftar</i>
+              <i class="fa fa-registered" aria-hidden="true"> Daftar</i>
               </a>
             </li>
             @endif
