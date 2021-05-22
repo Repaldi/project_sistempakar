@@ -74,12 +74,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <i class="fa fa-bookmark" aria-hidden="true" style="color:blue"></i>
-                <span class="nav-link-text">Info Harga</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
                 <i class="fa fa-info-circle" aria-hidden="true" style="color:red"></i>
                 <span class="nav-link-text">Tentang</span>
               </a>
