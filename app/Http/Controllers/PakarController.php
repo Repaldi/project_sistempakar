@@ -16,6 +16,11 @@ class PakarController extends Controller
         return view('admin.pakar', compact('pakar', 'pakarSyarat'));
     }
 
+    public function tentang()
+    {
+        return view('admin.tentang');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

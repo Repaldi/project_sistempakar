@@ -41,6 +41,7 @@ Route::get('/logout','HomeController@logout')->name('logout');
 | 
 */
 Route::get('/pakar','PakarController@index');
+Route::get('/tentang','PakarController@tentang');
 Route::patch('/pakar/verify', 'PakarController@update')->name('pakarVerify');
 Route::get('pakar/hapus/{id}', 'PakarController@destroy');
 
