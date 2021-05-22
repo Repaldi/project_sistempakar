@@ -29,8 +29,7 @@
       <!-- Brand -->
       <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="dashboard.html">
-          <!-- <img src="{{asset('asset_dashboard_1/img/brand/biru.png')}}" class="navbar-brand-img" alt="..."> -->
-          <img src="" class="navbar-brand-img" alt="SMART DIMAS">
+          <img src="{{asset('asset_dashboard_1/img/brand/biru.png')}}" class="navbar-brand-img" alt="...">
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->
@@ -50,13 +49,13 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('home')}}">
+              <a class="nav-link" href="{{'/'}}">
                 <i class="fa fa-home" aria-hidden="true"  style="color:green"></i>
                 <span class="nav-link-text">Beranda</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('diagnosis')}}">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
                 <span class="nav-link-text">Diagnosis</span>
               </a>
