@@ -15,6 +15,13 @@ class GejalaController extends Controller
         $gejala =  Gejala::paginate(10);
         return view('pakar/gejala');      
     }
+
+    public function admin()
+    {
+        $gejala =  Gejala::paginate(10);
+        return view('admin/gejala');      
+    }
+
     public function storeGejala(Request $request)
     {
         $request->validate([

@@ -14,6 +14,13 @@ class PenyakitController extends Controller
         $penyakit =  Penyakit::paginate(10);
         return view('pakar/penyakit');      
     }
+
+    public function admin()
+    {
+        $penyakit =  Penyakit::paginate(10);
+        return view('admin/penyakit');      
+    }
+
     public function storePenyakit(Request $request)
     {
         $this->validate($request,['foto' => 'nullable|file|image|mimes:png,jpg,jpeg,gif']);

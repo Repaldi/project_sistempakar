@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Pakar;
 
 class PakarSyarat extends Model
 {
@@ -11,7 +12,7 @@ class PakarSyarat extends Model
 
     public function pakar()
     {
-      return $this->belongsTo(Pakar::class);
+      return $this->belongsTo(Pakar::class, 'pakar_id');
     }
 
 }
