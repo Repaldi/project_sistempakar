@@ -28,7 +28,30 @@ Route::get('/logout','HomeController@logout')->name('logout');
 | Disini Khusus untuk dashboar ADMIN
 | 
 */
+Route::get('/admin-pakar','PakarController@index')->name('pakarAdmin');;
+Route::patch('/admin-pakar/verify', 'PakarController@update')->name('pakarVerify');
+Route::get('/admin-pakar/hapus/{id}', 'PakarController@destroy')->name('pakarHapus');
 
+/*
+| PENYAKIT
+*/
+Route::get('/admin-penyakit', 'PenyakitController@admin')->name('penyakitAdmin');
+Route::post('/admin-penyakit','PenyakitController@storePenyakit')->name('storePenyakitAdmin');
+Route::patch('/admin-penyakit','PenyakitController@updatePenyakit')->name('updatePenyakitAdmin');
+Route::get('/admin-penyakit/delete/{id}','PenyakitController@deletePenyakit')->name('deletePenyakitAdmin');
+
+/*
+| GEJALA
+*/
+Route::get('/admin-gejala', 'GejalaController@admin')->name('gejalaAdmin');
+Route::post('/admin-gejala','GejalaController@storeGejala')->name('storeGejalaAdmin');
+Route::patch('/admin-gejala','GejalaController@updateGejala')->name('updateGejalaAdmin');
+Route::get('/admin-gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteGejalaAdmin');
+/*
+| PENGETAHUAN
+*/
+Route::get('/admin-pengetahuan', 'PengetahuanController@admin')->name('pengetahuanAdmin');
+Route::post('/admin-pengetahuan','PengetahuanController@storePenyakit')->name('storePengetahuanAdmin');
 
 
 /*------------------------BATAS ROUTE ADMIN-------------------------------*/
@@ -40,9 +63,6 @@ Route::get('/logout','HomeController@logout')->name('logout');
 | Disini Khusus untuk dashboar Pakar
 | 
 */
-Route::get('/pakar','PakarController@index');
-Route::patch('/pakar/verify', 'PakarController@update')->name('pakarVerify');
-Route::get('pakar/hapus/{id}', 'PakarController@destroy');
 
 /*
 | DASHBOARD DAN PROFIL
@@ -55,7 +75,6 @@ Route::post('/home/store/pakarsyarat', 'ProfilController@storePakarSyarat')->nam
 | PENYAKIT
 */
 Route::get('/penyakit', 'PenyakitController@index')->name('penyakit');
-Route::get('/penyakit', 'PenyakitController@admin')->name('penyakitAdmin');
 Route::post('/penyakit','PenyakitController@storePenyakit')->name('storePenyakit');
 Route::patch('/penyakit','PenyakitController@updatePenyakit')->name('updatePenyakit');
 Route::get('/penyakit/delete/{id}','PenyakitController@deletePenyakit')->name('deletePenyakit');
@@ -64,7 +83,6 @@ Route::get('/penyakit/delete/{id}','PenyakitController@deletePenyakit')->name('d
 | GEJALA
 */
 Route::get('/gejala', 'GejalaController@index')->name('gejala');
-Route::get('/gejala', 'GejalaController@admin')->name('gejalaAdmin');
 Route::post('/gejala','GejalaController@storeGejala')->name('storeGejala');
 Route::patch('/gejala','GejalaController@updateGejala')->name('updateGejala');
 Route::get('/gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteGejala');

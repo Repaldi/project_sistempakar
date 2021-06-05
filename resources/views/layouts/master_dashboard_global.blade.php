@@ -95,25 +95,25 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/pakar">
+              <a class="nav-link" href="{{route('pakarAdmin')}}">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
                 <span class="nav-link-text">Pakar</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/penyakit">
+              <a class="nav-link" href="{{route('penyakitAdmin')}}">
                 <i class="fa fa-user-md" aria-hidden="true" style="color:blue"></i>
                 <span class="nav-link-text">Penyakit</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/gejala">
+              <a class="nav-link" href="{{route('gejalaAdmin')}}">
                 <i class="fa fa-history" aria-hidden="true" style="color:red"></i>
                 <span class="nav-link-text">Gejala</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('pengetahuanAdmin')}}">
                 <i class="fa fa-commenting-o" aria-hidden="true" style="color:green"></i>
                 <span class="nav-link-text">Pengetahuan</span>
               </a>

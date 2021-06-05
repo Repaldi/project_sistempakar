@@ -1,4 +1,10 @@
 @extends('layouts.master_dashboard_global')
+<?php
+    $gejala	= \DB::select("SELECT * FROM gejala ");
+    $penyakit	= \DB::select("SELECT * FROM penyakit");
+    //$pengetahuan	= \DB::select("SELECT * FROM pengetahuan");
+    $user 	= \DB::select("SELECT * FROM users WHERE role='2'");
+?>
 @section('content')    
 <!-- Main content -->
 <div class="main-content" id="panel">
@@ -102,14 +108,7 @@
               <p style="color:white"> SMART  DINAS meupakan aplikasi yang dapat  mengalisa, mendeteksi   dan   memberikan   solusi   terhadap   penyakit   pada   tanaman   nanas. </p>
             </div>
           </div>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <span class="alert-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
-</span>
-                <span class="alert-text"><strong>Pemberitahuan!</strong> Silahkan lengkapi profil dan persyaratan anda untuk menjadi pakar</span>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+       
           <!-- Card stats -->
           <div class="row">
             <div class="col-xl-3 col-md-6">
@@ -119,7 +118,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total Gejala Penyakit</h5>
-                      <span class="h2 font-weight-bold mb-0">20</span>
+                      <span class="h2 font-weight-bold mb-0">{{count($gejala)}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -137,7 +136,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total Penyakit Nanas</h5>
-                      <span class="h2 font-weight-bold mb-0">10</span>
+                      <span class="h2 font-weight-bold mb-0">{{count($penyakit)}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -155,7 +154,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total Pengetahuan</h5>
-                      <span class="h2 font-weight-bold mb-0">100</span>
+                      <span class="h2 font-weight-bold mb-0">0</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -173,7 +172,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Total Admin Pakar</h5>
-                      <span class="h2 font-weight-bold mb-0">3</span>
+                      <span class="h2 font-weight-bold mb-0">{{count($user)}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">

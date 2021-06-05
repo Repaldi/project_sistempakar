@@ -1,6 +1,8 @@
 @extends('layouts.master_dashboard_global')
-<?php  use App\Penyakit;
-    $penyakit = Penyakit::all();   
+<?php use App\Pengetahuan;
+      use App\Gejala;
+    $pengetahuan = Pengetahuan::all();   
+    $gejala = Gejala::all();   
 ?>
 @section('content')    
 <!-- Main content -->
@@ -101,7 +103,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-12 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Halaman Penyakit</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Halaman Pengetahuan</h6>
             </div>
           </div>
         </div>
@@ -117,13 +119,13 @@
         <div class="card-header border-0">
           <div class="row">
             <div class="col-6">
-              <h3 class="mb-0">Daftar Pakar</h3>
+              <h3 class="mb-0">Daftar Pengetahuan</h3>
             </div>
             <div class="col-6 text-right">
-            <!-- <a href="#" class="btn btn-primary btn-sm navbar-btn-right" data-toggle="modal" data-target="#tambah_penyakit">
+            <a href="#" class="btn btn-primary btn-sm navbar-btn-right" data-toggle="modal" data-target="#tambah_pengetahuan">
                 <span class="btn-inner--icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <span class="btn-inner--text">Tambah Pakar</span>
-              </a> -->
+                <span class="btn-inner--text">Tambah Pengetahuan</span>
+              </a>
             </div>
           </div>
         </div>
@@ -132,62 +134,38 @@
           <table class="table align-items-center table-flush table-striped">
             <thead class="thead-light">
               <tr>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No Hp</th>
-                <th>Jenis Kelamin</th>
-                <th>Photo</th>
-                <th>Dokumen</th>
-                <th>Action</th>
+                <th>Nama Gejala</th>
+                <th>CF Pakar</th>
+                <th>created_at</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-            <form action="{{route('pakarVerify')}}" method="post">
-            @csrf
-            @method('patch')
-            @forelse($pakar as $item)
-            
+            @forelse($pengetahuan as $item)
               <tr>
-                <td class="table-user">
-                  {{$item->nama_lengkap}}
+                <td>
+                <a href="#" class="font-weight-bold">{{$item->gejala_id->nama}}</a>
                 </td>
                 <td>
-               {{$item->alamat}}
+                  <span class="text-muted">{{$item->cf_pakar}}</span>
                 </td>
                 <td>
-                  {{$item->nomor_hp}}
+                  <span class="text-muted">{{$item->created_at}}</span>
                 </td>
                 <td class="table-actions">
-                {{$item->jenis_kelamin}}
+                <a href="#" class="btn btn-sm edit-pengetahuan" data-pengetahuan_id="{{$item->id}}" data-gejala_id="{{$item->gejala_id}}" data-toggle="modal" data-target="#edit_pengetahuan"> 
+                <i class="fas fa-user-edit" style="color:blue"></i>
+                </a> | 
+                <a href="#" class="btn btn-sm hapus-pengetahuan" data-pengetahuan_id="{{$item->id}}" data-nama_gejala="{{$item->gejala_id->nama_gejala}}">
+                    <i class="fas fa-trash" style="color:red"></i>
+                  </a>
                 </td>
-                <td class="table-actions">
-                <img src="{{ asset('images/profil/' . $item->foto) }}" width="50px" heigth="50px" alt="">
-                </td>
-                @if($item->pakarSyarat != null)
-                <td class="table-actions">
-                {{$item->pakarSyarat->dokumen}}
-                </td>
-                @else
-                <td class="table-actions">
-                
-                </td>
-                @endif
-                <input type="hidden" value= "1" name="status"> 
-                @if($item->pakarSyarat != null)
-                <input type="hidden" value="{{$item->pakarSyarat->id}}" name="id">  
-                <td class="table-actions">
-                <button type="submit" >verify</button>
-                <a href="/pakar/hapus/{{$item->pakarSyarat->id}}" class="btn-sm btn-danger">Tolak</a>
-                </td>
-                @endif
               </tr>
             @empty
             <tr>
-									<td colspan="4"> Belum ada data penyakit</td>
+									<td colspan="4"> Belum ada data pengetahuan yang di buat</td>
 								</tr>
             @endforelse
-            </form>
-
             </tbody>
           </table>
         </div>
@@ -198,7 +176,6 @@
 </div>
 
 @stop
-
 @section('linkfooter')
 
 <script>
@@ -254,39 +231,34 @@
 @endif
 
     <!-- Modal TAMBAH EBOOK -->
-<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="tambah_penyakit">
+<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="tambah_pengetahuan">
     <div class="modal-dialog modal-lg-12" >
       <div class="modal-content">
         <div class="modal-header ">
-          <h5 class="modal-title " id="exampleModalLabel"> Tambahkan Penyakit</h5>
+          <h5 class="modal-title " id="exampleModalLabel"> Tambahkan Pengetahuan</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="{{route('storePenyakit')}}" enctype="multipart/form-data" method="post">
+        <form action="{{route('storePengetahuanAdmin')}}" enctype="multipart/form-data" method="post">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="modal-body">
               <div class="container">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="nama_penyakit" class="col-form-label">Nama Penyakit</label>
-                      <input class="form-control" type="text" name="nama_penyakit" id="nama_penyakit">
+                      <select class="form-control" name="gejala_id" >
+                        <option value="" selected>Pilih Gejala</option>
+                          @foreach($gejala as $item)
+                            <option value="{{$item->id}}">{{$item->nama_gejala}}</option>
+                          @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="detail_penyakit" class="col-form-label">Detail Penyakit</label>
-                      <textarea class="form-control" name="detail_penyakit" id="detail_penyakit"></textarea>
+                      <label for="cf_pakar" class="col-form-label">Masukkan Nilai CF Pakar</label>
+                      <textarea class="form-control" name="cf_pakar" id="cf_pakar"></textarea>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="saran_penyakit" class="col-form-label">Saran Penyakit</label>
-                        <textarea class="form-control" name="saran_penyakit" id="saran_penyakit" ></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="foto" class="col-form-label">Gambar </label>
-                        <input type="file" name="foto" class="form-control" id="foto">
-                    </div>
-                  </div>
+                  
               </div>
             </div>
           <div class="modal-footer">
