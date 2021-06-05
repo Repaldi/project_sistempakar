@@ -21,6 +21,7 @@
   
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('asset_dashboard_1/css/argon.min-v=1.0.0.css')}}" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
 </head>
 
 <body>
