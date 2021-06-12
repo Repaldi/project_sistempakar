@@ -1,9 +1,9 @@
 @extends('layouts.master_dashboard_global')
 <?php  
 use App\Gejala;
-use App\Kondisi;
+
     $gejala = Gejala::all();   
-    $kondisi = Kondisi::all();   
+
 ?>
 @section('content')    
 <!-- Main content -->
@@ -115,16 +115,17 @@ use App\Kondisi;
     <div class="container-fluid mt--6">
         <div class="row">
         <div class="col-xl-12">
-           
+       
         <div class="card">
         <!-- Card header -->
+        
         <div class="card-header border-0">
           <div class="row">
             <div class="col-6">
             &nbsp;
             </div>
             <div class="col-6 text-right">
-            <a href="#" class="btn btn-primary btn-sm navbar-btn-right" data-toggle="modal" data-target="#tambah_penyakit">
+              <a href="{{route('getHasil')}}"  class="btn btn-primary btn-sm navbar-btn-right" >
                 <span class="btn-inner--icon"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
                 <span class="btn-inner--text"> Proses</span>
               </a>
@@ -155,16 +156,12 @@ use App\Kondisi;
                 <td>
                   <span>{{$item->nama_gejala}}</span>
                 </td>
+               
                 <td>
-             
-                <select class="form-control" name="kondisi" >
-                    <option value="" selected>Pilih jika sesuai</option>
-                @foreach($kondisi as $kon)
-                    <option value="{{$kon->nama_kondisi}}">{{$kon->nama_kondisi}}</option>
-                @endforeach
-                </select>
+                <input type="checkbox" name="gejala[]" value="{{$item->id}}">
                 
                 </td>
+                
               </tr>
             @endforeach
             @else
@@ -183,9 +180,12 @@ use App\Kondisi;
           </table>
         </div>
       </div>
+   
         </div>  
         </div>
+      
     </div>
+  
 </div>
 
 @stop

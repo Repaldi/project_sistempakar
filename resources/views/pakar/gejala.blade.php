@@ -1,6 +1,7 @@
 @extends('layouts.master_dashboard_global')
 <?php  use App\Gejala;
     $gejala = Gejala::all();   
+    
 ?>
 @section('content')    
 <!-- Main content -->
@@ -129,6 +130,7 @@
               <tr>
                 <th>Kode Gejala</th>
                 <th>Nama Gejala</th>
+                <th>Bobot Gejala</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -137,11 +139,14 @@
               <tr>
                 <td>{{$item->kode_gejala}}</td>
                 <td>
-                <a href="tables.html#!" class="font-weight-bold">{{$item->nama_gejala}}</a>
+                <a href="#" class="font-weight-bold">{{$item->nama_gejala}}</a>
+                </td>
+                <td>
+                <a href="#" class="font-weight-bold">{{$item->bobot}}</a>
                 </td>
                
                 <td class="table-actions">
-                <a href="#" class="btn btn-sm edit-gejala" data-gejala_id="{{$item->id}}" data-kode_gejala="{{$item->kode_gejala}}" data-nama_gejala="{{$item->nama_gejala}}" data-toggle="modal" data-target="#edit_gejala"> 
+                <a href="#" class="btn btn-sm edit-gejala" data-gejala_id="{{$item->id}}" data-kode_gejala="{{$item->kode_gejala}}" data-nama_gejala="{{$item->nama_gejala}}" data-bobot_gejala="{{$item->bobot}}" data-toggle="modal" data-target="#edit_gejala"> 
                 <i class="fas fa-user-edit" style="color:blue"></i>
                 </a> | 
                 <a href="#" class="btn btn-sm hapus-gejala" data-gejala_id="{{$item->id}}" data-nama_gejala="{{$item->nama_gejala}}">
@@ -172,13 +177,16 @@
         $(".edit-gejala").click(function (e) {
         const kode_gejala      = $(this).data('kode_gejala')
         const nama_gejala      = $(this).data('nama_gejala')
+        const bobot_gejala      = $(this).data('bobot_gejala')
         const gejala_id        = $(this).data('gejala_id');
         // console.log(nama_gejala);
         // console.log(gejala_id);
+        console.log(bobot_gejala);
        
         $("#gejala_id_update").val(gejala_id);
         $("#nama_gejala_update").val(nama_gejala);
         $("#kode_gejala_update").val(kode_gejala);
+        $("#bobot_gejala_update").val(bobot_gejala);
 
         });
     });
@@ -239,6 +247,22 @@
                       <input type="hidden" value="" name="gejala_id_update" id="gejala_id_update">
                       <input class="form-control" type="text" name="nama_gejala_update" id="nama_gejala_update" value="">
                     </div>
+                    <div class="form-group">
+                    <select class="custom-select my-1 mr-sm-2" value="" name="bobot_gejala_update" id="bobot_gejala_update" >
+                      <option selected id="bobot_gejala_update"></option>
+                      <option value="0">0</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.9">0.9</option>
+                      <option value="1">1</option>
+                    </select>
+                    </div>
                   </div>
               </div>
             </div>
@@ -273,6 +297,21 @@
                     <div class="form-group">
                       <label for="nama_gejala" class="col-form-label">Nama gejala</label>
                       <input class="form-control" type="text" name="nama_gejala" id="nama_gejala">
+                    </div>
+                    <div class="form-group">
+                    <select class="form-control" name="bobot_gejala" id="bobot_gejala">
+                      <option value="0">0</option>
+                      <option value="0.1">0.1</option>
+                      <option value="0.2">0.2</option>
+                      <option value="0.3">0.3</option>
+                      <option value="0.4">0.4</option>
+                      <option value="0.5">0.5</option>
+                      <option value="0.6">0.6</option>
+                      <option value="0.7">0.7</option>
+                      <option value="0.8">0.8</option>
+                      <option value="0.9">0.9</option>
+                      <option value="1">1</option>
+                    </select>
                     </div>
               </div>
             </div>

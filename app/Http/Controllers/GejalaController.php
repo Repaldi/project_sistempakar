@@ -27,11 +27,13 @@ class GejalaController extends Controller
         $request->validate([
             'kode_gejala' => 'required',
             'nama_gejala' => 'required',
+            'bobot_gejala' => 'required',
         ]);
 
         gejala::create([
-            'kode_gejala' => $request->nama_gejala,
+            'kode_gejala' => $request->kode_gejala,
             'nama_gejala' => $request->nama_gejala,
+            'bobot_gejala' => $request->bobot_gejala,
             
         ]);
 
@@ -45,13 +47,15 @@ class GejalaController extends Controller
         $request->validate([
             'kode_gejala_update' => 'required',
             'nama_gejala_update' => 'required',
+            'bobot_gejala_update' => 'required',
         ]);
 
         $gejala = Gejala::find($request->gejala_id_update);
 
         $gejala->update([
-            'kode_gejala' => $request->nama_gejala_update,
+            'kode_gejala' => $request->kode_gejala_update,
             'nama_gejala' => $request->nama_gejala_update,
+            'bobot' => $request->bobot_gejala_update,
         ]);
 
         return redirect()->back()->with('success-edit','Berhasil Mengedit Gejala');

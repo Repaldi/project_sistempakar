@@ -63,13 +63,10 @@ Route::post('/admin-pengetahuan','PengetahuanController@storePenyakit')->name('s
 | Disini Khusus untuk dashboar Pakar
 | 
 */
-<<<<<<< HEAD
-=======
 Route::get('/pakar','PakarController@index');
 Route::get('/tentang','PakarController@tentang');
 Route::patch('/pakar/verify', 'PakarController@update')->name('pakarVerify');
 Route::get('pakar/hapus/{id}', 'PakarController@destroy');
->>>>>>> 33cf005219440e035b6a32f9847e97c574fce8fc
 
 /*
 | DASHBOARD DAN PROFIL
@@ -103,6 +100,7 @@ Route::get('/gejala/delete/{id}','GejalaController@deleteGejala')->name('deleteG
 | Disini Khusus untuk dashboar global
 | 
 */
+Route::get('/diagnosis-proses', 'DiagnosisController@prosesDiagnosis')->name('getHasil');
 Route::get('/diagnosis', 'DiagnosisController@index')->name('diagnosis');
 
 

@@ -72,7 +72,7 @@ class PenyakitController extends Controller
             $tujuan_upload = 'images/penyakit';
             $file->move($tujuan_upload,$nama_file);
         }else {
-            $nama_file = $penyakit->file;
+            $nama_file = $penyakit->foto;
         }
 
         $penyakit->update([

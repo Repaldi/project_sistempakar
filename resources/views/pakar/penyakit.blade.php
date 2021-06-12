@@ -146,10 +146,10 @@
                 <a href="tables.html#!" class="font-weight-bold">{{$item->nama_penyakit}}</a>
                 </td>
                 <td class="table-actions">
-                <a href="#" class="btn btn-sm edit-penyakit" data-penyakit_id="{{$item->id}}" data-kode_penyakit="{{$item->kode_penyakit}}"data-nama_penyakit="{{$item->nama_penyakit}}" data-detail_penyakit="{{$item->detail_penyakit}}" data-saran_penyakit="{{$item->saran_penyakit}}" data-toggle="modal" data-target="#edit_penyakit"> 
+                <a href="#" class="btn btn-sm edit-penyakit" data-penyakit_id="{{$item->id}}" data-kode_penyakit="{{$item->kode_penyakit}}"data-nama_penyakit="{{$item->nama_penyakit}}" data-detail_penyakit="{{$item->detail_penyakit}}" data-saran_penyakit="{{$item->saran_penyakit}}" data-foto="{{$item->foto}}"data-toggle="modal" data-target="#edit_penyakit"> 
                 <i class="fas fa-user-edit" style="color:blue"></i>
                 </a> | 
-                <a href="#" class="btn btn-sm hapus-penyakit" data-penyakit_id="{{$item->id}}" data-nama_penyakit="{{$item->nama_penyakit}}">
+                <a href="#" class="btn btn-sm hapus-penyakit" data-penyakit_id="{{$item->id}}"  data-nama_penyakit="{{$item->nama_penyakit}}">
                     <i class="fas fa-trash" style="color:red"></i>
                   </a>
                 </td>
@@ -180,6 +180,7 @@
         const penyakit_id        = $(this).data('penyakit_id');
         const detail_penyakit    = $(this).data('detail_penyakit');
         const saran_penyakit     = $(this).data('saran_penyakit');
+        const foto               = $(this).data('foto');
 
         console.log(kode_penyakit);
         console.log(nama_penyakit);
@@ -191,6 +192,7 @@
         $("#kode_penyakit_update").val(kode_penyakit);
         $("#nama_penyakit_update").val(nama_penyakit);
         $("#saran_penyakit_update").val(saran_penyakit);
+        $("#foto_update").val(foto);
 
         });
     });
@@ -262,7 +264,7 @@
                     </div>
                     <div class="form-group">
                         <label for="foto" class="col-form-label">Gambar </label>
-                        <input type="file" name="foto" class="form-control" id="foto">
+                        <input type="file" name="foto" class="form-control" id="foto_update">
                     </div>
                   </div>
               </div>
